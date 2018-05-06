@@ -1,5 +1,5 @@
 # ContactsCard
-Проект задания https://docs.google.com/document/d/1Lxwq4EsqfxOQoc6X32Acdc2g_DMnxSAnNDViOcZ1xpk/edit
+Проект задания https://docs.google.com/document/d/1Lxwq4EsqfxOQoc6X32Acdc2g_DMnxSAnNDViOcZ1xpk/edit <br>
 Выполнен на основе паттерна MVVM 
 Структура проекта:
 	Model:
