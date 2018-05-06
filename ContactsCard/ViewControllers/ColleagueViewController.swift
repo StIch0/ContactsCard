@@ -10,12 +10,15 @@ import Foundation
 import UIKit
 class ColleagueViewController:  UIViewController{
     @IBOutlet weak var tableView : UITableView!
+    var photo : UIImage = UIImage()
+    let imagePicker = UIImagePickerController()
      var colleagueViewModel : ColleagueViewModel? = ColleagueViewModel(contactsManager: ContactsManager())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        imagePicker.delegate = self
         colleagueViewModel?.updateData{
             self.tableView.reloadData()
         }
@@ -45,18 +48,20 @@ class ColleagueViewController:  UIViewController{
             mes.placeholder = "Введите номер телефона"
             mes.keyboardType = .numberPad
         })
-        
-        let actionAlert = UIAlertAction(title: "OK", style: .default){
+        let cameraAlert = UIAlertAction(title: "Выбрать фото", style: .default){
+            [unowned alert] _ in
+            self.imagePicker.allowsEditing = false
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }
+        let actionAlert = UIAlertAction(title: "Добавить", style: .default){
             [unowned alert] _ in
             let name = alert.textFields![0]
             let secondName = alert.textFields![1]
             let patronomic = alert.textFields![2]
             let position = alert.textFields![3]
-            let workPhone = alert.textFields![4]
-
-            //to do somethink with answer
-            
-                 self.colleagueViewModel?.addColleague(colleague: ColleagueCardModel(profilePhoto: UIImage(), name: name.text, secondName: secondName.text, patronomic: patronomic.text, position: position.text, workPhone: workPhone.text))
+            let workPhone = alert.textFields![4]            
+            self.colleagueViewModel?.addColleague(colleague: ColleagueCardModel(profilePhoto: self.photo, name: name.text, secondName: secondName.text, patronomic: patronomic.text, position: position.text, workPhone: workPhone.text))
                 self.tableView.reloadData()
  
          }
@@ -89,3 +94,14 @@ extension ColleagueViewController : UITableViewDataSource, UITableViewDelegate {
         return CGFloat(180)
     }
 }
+extension ColleagueViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @objc private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            photo = pickedImage
+            print("photo", photo)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+

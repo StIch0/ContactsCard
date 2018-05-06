@@ -46,13 +46,13 @@ class FriendsViewController: UIViewController {
             mes in
             mes.placeholder = "Введите дату рождения"
          })
-        let cameraAlert = UIAlertAction(title: "Photo", style: .default){
+        let cameraAlert = UIAlertAction(title: "Выбрать фото", style: .default){
             [unowned alert] _ in
                 self.imagePicker.allowsEditing = false
                 self.imagePicker.sourceType = .photoLibrary
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionAlert = UIAlertAction(title: "OK", style: .default){
+        let actionAlert = UIAlertAction(title: "Добавить", style: .default){
             [unowned alert] _ in
             let name = alert.textFields![0]
             let secondName = alert.textFields![1]

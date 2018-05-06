@@ -106,9 +106,9 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9J-vN-2T0">
-                                <rect key="frame" x="286" y="600" width="82" height="67"/>
+                                <rect key="frame" x="229" y="600" width="139" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Добавить друга"/>
                                 <connections>
                                     <action selector="addFirendWithSender:" destination="TMJ-CB-62x" eventType="touchUpInside" id="K53-La-U5R"/>
                                 </connections>
@@ -210,9 +210,9 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-nV-eNg">
-                                <rect key="frame" x="282" y="608" width="93" height="59"/>
+                                <rect key="frame" x="229" y="608" width="146" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Добавить коллегу"/>
                                 <connections>
                                     <action selector="addColleagueWithSender:" destination="oRQ-1C-IAY" eventType="touchUpInside" id="pWy-VN-BOO"/>
                                 </connections>
@@ -277,7 +277,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVy-OO-SGS">
                                 <rect key="frame" x="237" y="623" width="122" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Сохранить"/>
                                 <connections>
                                     <action selector="saveChangies:" destination="ujF-eT-gKw" eventType="touchUpInside" id="yi2-fR-vSn"/>
                                 </connections>
@@ -349,6 +349,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ib8-Bt-yfT"/>
+        <segue reference="fIR-vh-zq4"/>
     </inferredMetricsTieBreakers>
 </document>
