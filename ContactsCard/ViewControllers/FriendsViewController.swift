@@ -8,6 +8,7 @@ class FriendsViewController: UIViewController {
     private var photo  : UIImage = UIImage()
     let dataBase = DataBaseManager.shared
     let imagePicker = UIImagePickerController()
+    var dateTextField : String = ""
     var friendsViewModel : FriendsViewModel? = FriendsViewModel(contactsManager: ContactsManager())
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,18 @@ class FriendsViewController: UIViewController {
             self.tableView.reloadData()
         }
         
+    }
+    @objc func editDate (_ sender : UITextField){
+        let datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+    }
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateTextField = dateFormatter.string(from: sender.date)
     }
     @IBAction func addFirend (sender : Any){//добавление нового друга
         let alert = UIAlertController(title: "Заполните поля", message: "" , preferredStyle: .alert)
@@ -39,7 +52,7 @@ class FriendsViewController: UIViewController {
         alert.addTextField(configurationHandler: {
             mes in
             mes.placeholder = "Введите дату рождения"
-         })
+           })
         let cameraAlert = UIAlertAction(title: "Выбрать фото", style: .default){
             [unowned alert] _ in
                 self.imagePicker.allowsEditing = false
@@ -52,11 +65,21 @@ class FriendsViewController: UIViewController {
             let secondName = alert.textFields![1]
             let patronomic = alert.textFields![2]
             let birthDate = alert.textFields![3]
-           
+            if name.text != "" && secondName.text != "" && birthDate.text != "" {
+            birthDate.addTarget(self, action: #selector(self.editDate), for: .editingDidBegin)
             self.friendsViewModel?.addFriend(friend:  FriendCardModel.init(profilePhoto: self.photo, name: name.text, secondName: secondName.text, patronomic: patronomic.text, birthDate: birthDate.text))
 //            self.dataBase.saveContext([name.text,secondName.text, patronomic.text,birthDate.text] as! AnyObject, entityName: "FriendEntity", key: "name","secondName","patronomic","birthDate")
                 self.tableView.reloadData()
-         }
+            }
+            else {
+                let toast = UIAlertController(title: "Заполните все поля", message: "", preferredStyle: .actionSheet)
+                self.present(toast, animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute:  {
+                    toast.dismiss(animated: true, completion: nil)
+                })
+            }
+            
+        }
         alert.addAction(cameraAlert)
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)

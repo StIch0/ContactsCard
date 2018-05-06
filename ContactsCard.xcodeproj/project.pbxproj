@@ -10,6 +10,8 @@
 		7705F6DF209EBF7F007AF273 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705F6DE209EBF7F007AF273 /* DetailsViewController.swift */; };
 		7705F6E1209ECA4D007AF273 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705F6E0209ECA4D007AF273 /* DetailsViewModel.swift */; };
 		7705F6E3209EF7C0007AF273 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705F6E2209EF7C0007AF273 /* DataBaseManager.swift */; };
+		7705F6E6209F3527007AF273 /* Changeies.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7705F6E5209F3527007AF273 /* Changeies.strings */; };
+		7705F6E8209F3C59007AF273 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705F6E7209F3C59007AF273 /* Extention.swift */; };
 		77F72CCF209B3A150007557F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F72CCE209B3A150007557F /* AppDelegate.swift */; };
 		77F72CD1209B3A150007557F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F72CD0209B3A150007557F /* ViewController.swift */; };
 		77F72CD4209B3A150007557F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F72CD2209B3A150007557F /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		7705F6DE209EBF7F007AF273 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		7705F6E0209ECA4D007AF273 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		7705F6E2209EF7C0007AF273 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		7705F6E5209F3527007AF273 /* Changeies.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Changeies.strings; sourceTree = "<group>"; };
+		7705F6E7209F3C59007AF273 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		77F72CCB209B3A150007557F /* ContactsCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F72CCE209B3A150007557F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77F72CD0209B3A150007557F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				77F72CEA209B3F210007557F /* ContactsManager.swift */,
+				7705F6E7209F3C59007AF273 /* Extention.swift */,
 				7705F6E2209EF7C0007AF273 /* DataBaseManager.swift */,
 			);
 			path = Managers;
@@ -107,6 +112,7 @@
 				77F72CDA209B3A150007557F /* LaunchScreen.storyboard */,
 				77F72CDD209B3A150007557F /* Info.plist */,
 				77F72CD5209B3A150007557F /* ContactsCard.xcdatamodeld */,
+				7705F6E5209F3527007AF273 /* Changeies.strings */,
 			);
 			path = ContactsCard;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7705F6E6209F3527007AF273 /* Changeies.strings in Resources */,
 				77F72CDC209B3A150007557F /* LaunchScreen.storyboard in Resources */,
 				77F72CD9209B3A150007557F /* Assets.xcassets in Resources */,
 				77F72CD4209B3A150007557F /* Main.storyboard in Resources */,
@@ -239,6 +246,7 @@
 				77F72CFC209B52030007557F /* FriendsViewModel.swift in Sources */,
 				77F72CF9209B50590007557F /* ColleagueViewController.swift in Sources */,
 				77F72CF7209B50430007557F /* FriendsViewController.swift in Sources */,
+				7705F6E8209F3C59007AF273 /* Extention.swift in Sources */,
 				77F72CCF209B3A150007557F /* AppDelegate.swift in Sources */,
 				77F72CE8209B3C3F0007557F /* ColleagueCardModel.swift in Sources */,
 				77F72CF2209B4C600007557F /* FriendsCellViewModel.swift in Sources */,

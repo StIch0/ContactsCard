@@ -60,9 +60,18 @@ class ColleagueViewController:  UIViewController{
             let secondName = alert.textFields![1]
             let patronomic = alert.textFields![2]
             let position = alert.textFields![3]
-            let workPhone = alert.textFields![4]            
+            let workPhone = alert.textFields![4]
+            if name.text != "" && secondName.text != "" && position.text != "" && workPhone.text != ""{
             self.colleagueViewModel?.addColleague(colleague: ColleagueCardModel(profilePhoto: self.photo, name: name.text, secondName: secondName.text, patronomic: patronomic.text, position: position.text, workPhone: workPhone.text))
                 self.tableView.reloadData()
+            }
+            else {
+                let toast = UIAlertController(title: "Заполните все поля", message: "", preferredStyle: .actionSheet)
+                self.present(toast, animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute:  {
+                    toast.dismiss(animated: true, completion: nil)
+                })
+            }
  
          }
         alert.addAction(actionAlert)
