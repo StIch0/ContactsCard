@@ -67,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7705F6E4209F2E8C007AF273 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				77F72CEA209B3F210007557F /* ContactsManager.swift */,
+				7705F6E2209EF7C0007AF273 /* DataBaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		77F72CC2209B3A150007557F = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				77F72CCE209B3A150007557F /* AppDelegate.swift */,
-				77F72CEA209B3F210007557F /* ContactsManager.swift */,
-				7705F6E2209EF7C0007AF273 /* DataBaseManager.swift */,
+				7705F6E4209F2E8C007AF273 /* Managers */,
 				77F72CFF209B57E80007557F /* ViewModel */,
 				77F72CFA209B51C90007557F /* ViewControllers */,
 				77F72CD2209B3A150007557F /* Main.storyboard */,

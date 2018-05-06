@@ -79,7 +79,6 @@ class DataBaseManager {
             print("Failed")
             
         }
-        print(returnObject)
-        return returnObject
+         return returnObject
     }
 }
