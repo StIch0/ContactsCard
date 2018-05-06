@@ -1,10 +1,4 @@
-//
-//  FriendsViewController.swift
-//  ContactsCard
-//
-//  Created by Pavel Burdukovskii on 03/05/2018.
-//  Copyright © 2018 Pavel Burdukovskii. All rights reserved.
-//
+
 
 import Foundation
 import UIKit
@@ -27,7 +21,7 @@ class FriendsViewController: UIViewController {
         }
         
     }
-    @IBAction func addFirend (sender : Any){
+    @IBAction func addFirend (sender : Any){//добавление нового друга
         let alert = UIAlertController(title: "Заполните поля", message: "" , preferredStyle: .alert)
 
         alert.addTextField(configurationHandler: {
@@ -67,7 +61,7 @@ class FriendsViewController: UIViewController {
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {//передача выбранного контакта в DetailsViewController
         if segue.identifier == "detailsFriend"{
         let detailsViewController = segue.destination as! DetailsViewController
         let index = sender as! Int
@@ -78,7 +72,7 @@ class FriendsViewController: UIViewController {
     }
 }
 
-extension FriendsViewController : UITableViewDelegate, UITableViewDataSource {
+extension FriendsViewController : UITableViewDelegate, UITableViewDataSource {//заполнение таблицы друзей
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : FriendsCell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsCell
         cell.friendsCellViewModel = friendsViewModel?.cellViewModel(index: indexPath.row)
@@ -97,7 +91,7 @@ extension FriendsViewController : UITableViewDelegate, UITableViewDataSource {
         return CGFloat(180)
     }
 }
-extension FriendsViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension FriendsViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {//открытие галлереи и выбор фото для фото профиля
     @objc private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
              photo = pickedImage

@@ -15,7 +15,7 @@ class FriendsViewModel {
     private var detailsViewModel : DetailsViewModel?
     private var friendsCellViewModelArray = [FriendsCellViewModel]()
     private var friendArray = [FriendCardModel]()
-    func updateData (complection : @escaping ()->Void){
+    func updateData (complection : @escaping ()->Void){//обновляем данные полученых контактов
         contactsManager.getFriend{
             friendArray in
             self.friendArray = friendArray
@@ -26,20 +26,18 @@ class FriendsViewModel {
         }
         complection()
     }
-    func addFriend (friend : FriendCardModel){
+    func addFriend (friend : FriendCardModel){//добаление нового контакта
         friendArray.append(friend)
          friendsCellViewModelArray.append(FriendsCellViewModel(friend: friend))
     }
-    func numberOfFriends() -> Int {
+    func numberOfFriends() -> Int {//получение количества имеющихся контактов-друзей
          return friendsCellViewModelArray.count
     }
-    func cellViewModel(index : Int) ->FriendsCellViewModel? {
+    func cellViewModel(index : Int) ->FriendsCellViewModel? {//получение друга по индексу для вывода в соответсвующую ячейку
         guard index < friendsCellViewModelArray.count  else {return nil}
         return friendsCellViewModelArray[index]
     }
-    func detailsVewModel(index : Int)->DetailsViewModel {
-        print(index)
-        print(friendArray.count)
+    func detailsVewModel(index : Int)->DetailsViewModel {//получение друга по индексу при выборе из списка
         self.detailsViewModel = DetailsViewModel(friend: friendArray[index])
         return self.detailsViewModel!
     }
