@@ -7,7 +7,7 @@
 2 - FriendCardModel - модель данных друзей, наследуется от CardModel + содержит поле день рождения <br>
 3 - ColleagueCardModel -  модель данных коллег, наследуется от CardModel + содержит поля должность и рабочий телефон <br>
 	Cells:  <br>
-содержит классы FriendsCell и ColleagueCell - описывают модель ячейки в таблице и ссылку на соответствующий обект из папки  <br> CellsViewModel <br>
+содержит классы FriendsCell и ColleagueCell - описывают модель ячейки в таблице и ссылку на соответствующий обект из папки  <br>  <br>CellsViewModel <br>
 	СellsViewModel:  <br>
 В классах  ColleagueCellViewModel и FriendsCellViewModel происходит инициалицация полей и присвоение им значений  <br>
 	ViewControlers: <br> 
