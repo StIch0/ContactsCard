@@ -26,15 +26,15 @@ class ContactsManager {
     }
     func addColleague()->[ColleagueCardModel]{
         var colleagueCardModel : [ColleagueCardModel] = Array()
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Ivanov", patronomic: "", position: "Manager", workPhone: "111-101"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-191"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-181"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
-        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(), name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Ivanov", patronomic: "", position: "Manager", workPhone: "111-101"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-191"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-181"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
+        colleagueCardModel.append(mockColleagueObject(profilePhoto: UIImage(named : "man")!, name: "Petr", secondName: "Petrov", patronomic: "", position: "Developer", workPhone: "111-111"))
         return colleagueCardModel
     }
     private func mockFriendObject(profilePhoto: UIImage,name: String?, secondName: String?, patronomic: String?,birthDate : String?)->FriendCardModel{

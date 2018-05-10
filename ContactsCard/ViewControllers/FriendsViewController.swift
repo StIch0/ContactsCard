@@ -7,6 +7,7 @@ class FriendsViewController: UIViewController {
     @IBOutlet weak var tableView : UITableView!
     private var photo  : UIImage = UIImage()
     let dataBase = DataBaseManager.shared
+    var dict  : [String : Any] = Dictionary()
     let imagePicker = UIImagePickerController()
     var dateTextField : String = ""
     var friendsViewModel : FriendsViewModel? = FriendsViewModel(contactsManager: ContactsManager())
