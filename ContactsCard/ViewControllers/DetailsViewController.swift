@@ -16,7 +16,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var position : UITextField!
     @IBOutlet weak var workPhone : UITextField!
     @IBOutlet weak var profilePhoto : UIImageView!
-    var index : Int = 0
     var friendsViewmodel : FriendsViewModel? = FriendsViewModel(contactsManager: ContactsManager())
     var colleagueViewModel  : ColleagueViewModel = ColleagueViewModel(contactsManager: ContactsManager())
     var detailsViewModel : DetailsViewModel = DetailsViewModel()
@@ -31,6 +30,12 @@ class DetailsViewController: UIViewController {
          super.viewDidLoad()
     }
      @IBAction func saveChangies(_ sender: Any) {
- 
+        detailsViewModel.name = self.name.text
+        detailsViewModel.secondName =  self.secondName.text
+        detailsViewModel.patronomic = self.patronomic.text
+        detailsViewModel.profilePhoto = self.profilePhoto.image
+        detailsViewModel.position = self.position.text
+        detailsViewModel.birthDate = self.birthDate.text
+        detailsViewModel.workPhone = self.workPhone.text
     }
 }

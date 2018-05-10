@@ -17,9 +17,15 @@ class FriendsViewController: UIViewController {
         tableView.dataSource = self
         imagePicker.delegate = self
         title = "Список друзей"
-        friendsViewModel?.updateData{
-//            self.friendsViewModel?.addFriend(friend: self.dataBase.fetchFromCoreData(entityName: "FriendEntity", key: "name","secondName","patronomic","birthDate") as! FriendCardModel)
-            self.tableView.reloadData()
+        let arr = self.dataBase.fetchFromCoreData(entityName: "FriendEntity", key: "name","secondName","patronomic","birthDate")
+          friendsViewModel?.updateData{
+            if arr.count != 0 {
+            for index in 0...arr.count-1 {
+                self.friendsViewModel?.addFriend(friend: FriendCardModel(profilePhoto: UIImage(), name: arr[index][0], secondName: arr[index][1], patronomic: arr[index][2], birthDate: arr[index][3]))
+                }
+                self.tableView.reloadData()
+                
+            }
         }
         
     }
@@ -69,7 +75,7 @@ class FriendsViewController: UIViewController {
             if name.text != "" && secondName.text != "" && birthDate.text != "" {
             birthDate.addTarget(self, action: #selector(self.editDate), for: .editingDidBegin)
             self.friendsViewModel?.addFriend(friend:  FriendCardModel.init(profilePhoto: self.photo, name: name.text, secondName: secondName.text, patronomic: patronomic.text, birthDate: birthDate.text))
-//            self.dataBase.saveContext([name.text,secondName.text, patronomic.text,birthDate.text] as! AnyObject, entityName: "FriendEntity", key: "name","secondName","patronomic","birthDate")
+                self.dataBase.saveContext([name.text ?? "" ,secondName.text ?? "", patronomic.text ?? "",birthDate.text ?? ""], entityName: "FriendEntity", key: ["name","secondName","patronomic","birthDate"])
                 self.tableView.reloadData()
             }
             else {
@@ -90,7 +96,6 @@ class FriendsViewController: UIViewController {
         let detailsViewController = segue.destination as! DetailsViewController
         let index = sender as! Int
         detailsViewController.detailsViewModel = (friendsViewModel?.detailsVewModel(index: index))!
-        detailsViewController.index = index
         }
         
     }

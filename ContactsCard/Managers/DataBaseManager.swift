@@ -42,17 +42,17 @@ class DataBaseManager {
     
     // MARK: - Core Data Saving support
     
-    func saveContext (_ arr : AnyObject, entityName : String, key: String...) {
+    func saveContext (_ arr : [String], entityName : String, key: [String]) {
         let context = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
         let object = NSManagedObject(entity: entity!, insertInto: context)
-        print(arr)
-        for index in key{
-            object.setValue(arr, forKey: index)
+        for index in 0...key.count-1  {
+            object.setValue(arr[index], forKey: key[index])
         }
         if context.hasChanges {
             do {
                 try context.save()
+                print("save")
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -62,23 +62,26 @@ class DataBaseManager {
         }
     }
     
-    func fetchFromCoreData(entityName : String, key: String...) -> AnyObject{
+    func fetchFromCoreData(entityName : String, key: String...) -> [[String]]{
         let context = persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        var returnObject  : AnyObject = 0 as AnyObject
+        var returnObject  : [[String]] = Array()
+        var foo  : [String] = Array()
         request.returnsObjectsAsFaults = false
         do {
             let result = try context.fetch(request)
             for res in result as! [NSManagedObject] {
-                for index in key{
-                    returnObject = res.value(forKey: index) as AnyObject
-                    
+                 for index in key{
+                     foo.append((res.value(forKey: index) as! String))
                 }
+                returnObject.append(foo)
+                foo.removeAll()
             }
         } catch {
             print("Failed")
             
         }
+        print("returnObject", returnObject )
          return returnObject
     }
 }

@@ -13,15 +13,21 @@ class ColleagueViewController:  UIViewController{
     var photo : UIImage = UIImage()
     let imagePicker = UIImagePickerController()
      var colleagueViewModel : ColleagueViewModel? = ColleagueViewModel(contactsManager: ContactsManager())
-    
+    let dataBase = DataBaseManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         imagePicker.delegate = self
+        let arr = self.dataBase.fetchFromCoreData(entityName: "ColleagueEntity", key: "name","secondName","patronomic","position","workPhone")
         colleagueViewModel?.updateData{
-            self.tableView.reloadData()
-        }
+            if arr.count != 0{
+            for index in 0...arr.count-1 {
+                self.colleagueViewModel?.addColleague(colleague: ColleagueCardModel(profilePhoto: UIImage(), name: arr[index][0], secondName: arr[index][1], patronomic: arr[index][2], position: arr[index][3], workPhone: arr[index][4]))}
+                self.tableView.reloadData()
+                
+            }
+         }
         title = "Список коллег"
      }
     @IBAction func addColleague (sender : Any){
@@ -63,6 +69,7 @@ class ColleagueViewController:  UIViewController{
             let workPhone = alert.textFields![4]
             if name.text != "" && secondName.text != "" && position.text != "" && workPhone.text != ""{
             self.colleagueViewModel?.addColleague(colleague: ColleagueCardModel(profilePhoto: self.photo, name: name.text, secondName: secondName.text, patronomic: patronomic.text, position: position.text, workPhone: workPhone.text))
+                self.dataBase.saveContext([name.text ?? "", secondName.text ?? "" , patronomic.text ?? "", position.text ?? "", workPhone.text ?? ""], entityName: "ColleagueEntity", key: ["name","secondName","patronomic","position","workPhone"])
                 self.tableView.reloadData()
             }
             else {
